@@ -72,6 +72,11 @@
 | [Rate Limiting Basics](./10-rate-limiting/rate-limiting-basics.md) | Concepts, use cases, distributed limiting |
 | [Algorithms](./10-rate-limiting/algorithms.md) | Fixed Window, Sliding Window, Token Bucket, Leaky Bucket |
 
+### 🔁 Consistent Hashing
+| Topic | Description |
+|-------|-------------|
+| [Consistent Hashing](./11-consistent-hashing/consistent-hashing.md) | Hash ring, virtual nodes, minimal remapping |
+
 ---
 
 ## 🗺️ System Design Concept Map
@@ -111,6 +116,9 @@ mindmap
     Consistency
       CAP Theorem
       PACELC
+    Consistent Hashing
+      Hash Ring
+      Virtual Nodes
 ```
 
 ---
@@ -144,6 +152,13 @@ Legacy real-time?            → Long Polling
 Event streaming / analytics? → Kafka
 Background jobs / routing?   → RabbitMQ
 Managed cloud queue?         → Amazon SQS / Google Pub/Sub
+```
+
+### Hashing Decision
+```
+Distributing keys across servers? → Consistent Hashing
+  Adding/removing servers often?    → Virtual Nodes (100-200 per server)
+  Simple static setup?              → Modulo Hashing
 ```
 
 ---
